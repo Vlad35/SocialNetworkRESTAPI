@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.DTO.UserDTO;
+import ru.Vlad.Spring.SocialNet.SocialNetwork.DTO.UserRegistrationDTO;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Services.UserService;
 
 @Component
@@ -23,9 +24,9 @@ public class UserDTOValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        UserDTO userDTO = (UserDTO) target;
+        UserRegistrationDTO userRegistrationDTO = (UserRegistrationDTO) target;
 
-        if(!userService.getUserByName(userDTO.getUsername()).isPresent()) {
+        if(!userService.getUserByName(userRegistrationDTO.getUsername()).isPresent()) {
             return;
         }
         errors.rejectValue("username","","Nickname is used by Someone else");

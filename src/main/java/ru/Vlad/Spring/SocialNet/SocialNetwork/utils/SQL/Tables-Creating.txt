@@ -2,7 +2,7 @@ CREATE TABLE Customer (
                         id serial PRIMARY KEY,
                         username VARCHAR(200) NOT NULL,
                         password VARCHAR(200) NOT NULL,
-                        date_of_birth DATE NOT NULL,
+                        date_of_birth VARCHAR(200) NOT NULL,
                         registration_date TIMESTAMP NOT NULL
 );
 

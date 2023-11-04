@@ -1,5 +1,6 @@
 package ru.Vlad.Spring.SocialNet.SocialNetwork.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -26,6 +27,7 @@ public class UserRegistrationDTO {
     private String password;
 
     @NotNull
-    private Date dateOfBirth;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
+    private String dateOfBirth;
 }
 

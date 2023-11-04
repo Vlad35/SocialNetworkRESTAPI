@@ -68,10 +68,11 @@ public class AuthRestController {
     }
 
     @PostMapping("/login")
-    public Map<String, String> performLogin(@RequestBody @Valid UserDTO userDTO){
+    public Map<String, String> performLogin(@RequestBody UserDTO userDTO) {
         UsernamePasswordAuthenticationToken authInputToken =
                 new UsernamePasswordAuthenticationToken(userDTO.getUsername(),
                         userDTO.getPassword());
+
         try {
             authenticationManager.authenticate(authInputToken);
         } catch (BadCredentialsException e) {
@@ -79,12 +80,7 @@ public class AuthRestController {
         }
 
         String token = jwtUtil.generateToken(userDTO.getUsername());
-        userService.setJwtToken(token);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Bearer " + token);
-
-        return Map.of("jwt-tokens", token);
+        return Map.of("jwt-token", token);
     }
 
     @GetMapping("/showUserInfo")

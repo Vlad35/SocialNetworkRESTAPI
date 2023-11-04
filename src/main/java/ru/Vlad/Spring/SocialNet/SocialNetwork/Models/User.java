@@ -29,7 +29,7 @@ public class User implements Comparable<User> {
     private String password;
 
     @NotNull
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @NotNull
     private LocalDateTime registrationDate;
@@ -50,7 +50,7 @@ public class User implements Comparable<User> {
     )
     private Set<User> friends = new TreeSet<>();
 
-    public User(Long id, String username, String password, Date dateOfBirth, LocalDateTime registrationDate) {
+    public User(Long id, String username, String password, String dateOfBirth, LocalDateTime registrationDate) {
         this.id = id;
         this.username = username;
         this.password = password;

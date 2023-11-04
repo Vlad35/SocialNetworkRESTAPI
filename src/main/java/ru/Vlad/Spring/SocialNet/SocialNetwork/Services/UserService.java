@@ -38,6 +38,7 @@ public class UserService {
 
     public User createUser(User user) {
         Optional<Role> optionalRole = roleRepository.findByRolename("ROLE_USER");
+        Long id = (long) getAllUsers().size() + 1;
 
         if(user.getUsername() == null || user.getUsername().trim().isEmpty()) {
             throw new IllegalArgumentException("User's username is empty");
@@ -57,20 +58,21 @@ public class UserService {
                 user.setDateOfBirth(generateRandomDateOfBirth());
             }
             user.setRegistrationDate(LocalDateTime.now());
+            user.setId(id);
             userRepository.save(user);
             return user;
         }
         return null;
     }
 
-    private Date generateRandomDateOfBirth() {
+    private String generateRandomDateOfBirth() {
         Random random = new Random();
         int randomYears = random.nextInt(81);
 
         LocalDateTime currentDateTime = LocalDateTime.now();
         LocalDateTime dateOfBirth = currentDateTime.minusYears(randomYears);
 
-        return Date.from(dateOfBirth.toInstant(ZoneOffset.UTC));
+        return Date.from(dateOfBirth.toInstant(ZoneOffset.UTC)).toString();
     }
 
 

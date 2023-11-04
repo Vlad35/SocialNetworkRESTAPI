@@ -10,13 +10,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Security.JWTUtil;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Services.Details.MyUserDetailsService;
 
 import java.io.IOException;
 
 @Component
-public class JWTFilter/* extends OncePerRequestFilter*/ {
+public class JWTFilter extends OncePerRequestFilter {
     private final JWTUtil jwtUtil;
     private final MyUserDetailsService myUserDetailsService;
 

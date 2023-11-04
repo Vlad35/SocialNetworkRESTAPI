@@ -9,9 +9,11 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Services.Details.MyUserDetailsService;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
@@ -26,7 +28,7 @@ public class SecurityConfig {
 
     private final MyUserDetailsService myUserDetailsService;
 
-    //private final JWTFilter jwtFilter;
+    private final JWTFilter jwtFilter;
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
@@ -63,10 +65,10 @@ public class SecurityConfig {
                 })
                 .exceptionHandling(exc->{
                     exc.accessDeniedPage("/auth/denied");
-                });
-                //.sessionManagement(SM -> SM.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                })
+                .sessionManagement(SM -> SM.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        //http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
