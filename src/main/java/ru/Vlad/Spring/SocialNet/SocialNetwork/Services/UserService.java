@@ -1,21 +1,15 @@
 package ru.Vlad.Spring.SocialNet.SocialNetwork.Services;
 
 import jakarta.transaction.Transactional;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.Vlad.Spring.SocialNet.SocialNetwork.DTO.UserDTO;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.DTO.UserRegistrationDTO;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Models.Role;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Models.User;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Repositories.RoleRepository;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Repositories.UserRepository;
-import ru.Vlad.Spring.SocialNet.SocialNetwork.Security.MyUserDetails;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -24,17 +18,23 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-@Getter
-@Setter
 @Transactional
 @Service
-@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper modelMapper;
     private String JwtToken;
+
+    @Autowired
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.modelMapper = modelMapper;
+    }
+
 
     public User createUser(User user) {
         Optional<Role> optionalRole = roleRepository.findByRolename("ROLE_USER");
@@ -75,7 +75,6 @@ public class UserService {
         return Date.from(dateOfBirth.toInstant(ZoneOffset.UTC)).toString();
     }
 
-
     public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
     }
@@ -84,35 +83,38 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+
+    public User getUserByName(String name) {
+        User user = userRepository.findUserByUsername(name);
+        return user;
     }
 
-    public void updateUser(User user) {
-        userRepository.save(user);
-    }
-
-    public Optional<User> getUserByName(String name) {
-        return userRepository.findUserByUsername(name);
-    }
-
-
-    public User convertToUser(UserDTO userDTO) {
-        return modelMapper.map(userDTO,User.class);
-    }
-
-    public boolean areUsersFriends(Long userId1, Long userId2) {
-        return userRepository.existsByIdAndFriendsId(userId1, userId2) || userRepository.existsByIdAndFriendsId(userId2, userId1);
-    }
-
-    public User getCurrentSessionUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
-
-        return myUserDetails.user();
-    }
 
     public User convertToUserToRegistrate(UserRegistrationDTO userRegistrationDTO) {
         return modelMapper.map(userRegistrationDTO,User.class);
+    }
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public RoleRepository getRoleRepository() {
+        return roleRepository;
+    }
+
+    public PasswordEncoder getPasswordEncoder() {
+        return passwordEncoder;
+    }
+
+    public ModelMapper getModelMapper() {
+        return modelMapper;
+    }
+
+    public String getJwtToken() {
+        return JwtToken;
+    }
+
+    public void setJwtToken(String jwtToken) {
+        JwtToken = jwtToken;
     }
 }

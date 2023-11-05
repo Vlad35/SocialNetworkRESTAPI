@@ -2,18 +2,12 @@ package ru.Vlad.Spring.SocialNet.SocialNetwork.Models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Getter
-@Setter
 @Entity
-@NoArgsConstructor
 @Table(name="Role")
 public class Role {
     @Id
@@ -23,10 +17,8 @@ public class Role {
     @NotEmpty
     private String rolename;
 
-
     @ManyToMany(mappedBy = "roles")
     private Set<User> users = new HashSet<>();
-
 
     @Override
     public boolean equals(Object o) {
@@ -39,5 +31,38 @@ public class Role {
     @Override
     public int hashCode() {
         return Objects.hash(id, rolename);
+    }
+
+    public Role(long id, String rolename, Set<User> users) {
+        this.id = id;
+        this.rolename = rolename;
+        this.users = users;
+    }
+
+    public Role() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getRolename() {
+        return rolename;
+    }
+
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

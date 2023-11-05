@@ -49,4 +49,8 @@ public record MyUserDetails(User user) implements UserDetails {
         return true;
     }
 
+    public  User getUser() {
+        return this.user;
+    }
+
 }

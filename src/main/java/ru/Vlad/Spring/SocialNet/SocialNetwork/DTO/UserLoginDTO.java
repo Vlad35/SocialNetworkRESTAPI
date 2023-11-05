@@ -1,11 +1,10 @@
 package ru.Vlad.Spring.SocialNet.SocialNetwork.DTO;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class UserRegistrationDTO {
+public class UserLoginDTO {
     @NotNull
     @NotEmpty(message = "Name cannot be empty")
     @Size(min = 2,max = 30,message = "Name should be between 2 and 30 characters at length")
@@ -16,17 +15,12 @@ public class UserRegistrationDTO {
     @NotEmpty(message = "Password cannot be empty")
     private String password;
 
-    @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
-    private String dateOfBirth;
-
-    public UserRegistrationDTO(String username, String password, String dateOfBirth) {
+    public UserLoginDTO(String username, String password) {
         this.username = username;
         this.password = password;
-        this.dateOfBirth = dateOfBirth;
     }
 
-    public UserRegistrationDTO() {
+    public UserLoginDTO() {
     }
 
     public String getUsername() {
@@ -44,13 +38,4 @@ public class UserRegistrationDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 }
-

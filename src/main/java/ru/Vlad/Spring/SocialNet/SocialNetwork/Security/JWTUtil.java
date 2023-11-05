@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -37,4 +38,18 @@ public class JWTUtil {
 
         return decodedJWT.getClaim("customerName").asString();
     }
+    public String generateTokenAndSetHeader(String customerName, HttpServletResponse response) {
+        Date expirationDate = Date.from(ZonedDateTime.now().plusMinutes(60).toInstant());
+        String token = JWT.create()
+                .withSubject("Customer Details")
+                .withClaim("customerName", customerName)
+                .withIssuedAt(new Date())
+                .withIssuer("Vlad")
+                .withExpiresAt(expirationDate)
+                .sign(Algorithm.HMAC256(secret));
+
+        response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
+        return token;
+    }
+
 }

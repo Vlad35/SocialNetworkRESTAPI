@@ -1,4 +1,4 @@
-package ru.Vlad.Spring.SocialNet.SocialNetwork.Services.Details;
+package ru.Vlad.Spring.SocialNet.SocialNetwork.Details;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Models.User;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Repositories.UserRepository;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Security.MyUserDetails;
-
-import java.util.Optional;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
@@ -22,10 +20,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepository.findUserByUsername(username);
-        if(optionalUser.isEmpty()) {
+        User optionalUser = userRepository.findUserByUsername(username);
+        if(optionalUser == null) {
             throw new UsernameNotFoundException("User Not Found!");
         }
-        return new MyUserDetails(optionalUser.get());
+        return new MyUserDetails(optionalUser);
     }
+
 }
