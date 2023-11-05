@@ -32,7 +32,7 @@
 В случае если происходят ошибки в данных или имя пользователя занято уже,были учтены тоже.
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/932fb4b5-90f7-4fe5-85f5-9b18912bc9bc)
 Для авторизации надо ввести следующие данные:Никнейм,Пароль.
-Например:![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/985024ff-8e4f-4c16-af96-449e80f1061b)
+Например:![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/be9db66a-5ca8-453c-befb-a59d14a3c589)
 Ответом в случае успешного логина является JWT-токен для пользователя.
 В случае если происходят ошибки в данных были учтены тоже.
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/5341fd3f-4fe3-4c6c-93f1-d0cae494bd2c)
