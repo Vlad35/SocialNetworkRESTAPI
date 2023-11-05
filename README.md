@@ -7,28 +7,29 @@
 
 2)Spring Boot Starter Security
 
-3)Spring Boot Starter Thymeleaf
+3)Spring Boot Starter Web
 
-4)Spring Boot Starter Web
+4)PostgreSQL (для работы с базой данных PostgreSQL)
 
-5)PostgreSQL (для работы с базой данных PostgreSQL)
+5)Lombok (дополнительная библиотека для упрощения разработки)
 
-6)Lombok (дополнительная библиотека для упрощения разработки)
+6)Spring Boot Starter Test (зависимость для тестирования)
 
-7)Spring Boot Starter Test (зависимость для тестирования)
+7)Spring Security Test (зависимость для тестирования Spring Security)
 
-8)Spring Security Test (зависимость для тестирования Spring Security)
+8)Spring Boot Starter Validation (зависимость для валидации данных)
 
-9)Spring Boot Starter Validation (зависимость для валидации данных)
+9)ModelMapper (для маппинга объектов)
 
-10)ModelMapper (для маппинга объектов)
+10)JavaFaker (для генерации фейковых данных)
 
-11)JavaFaker (для генерации фейковых данных)
+11)Hibernate Validator (для валидации данных с использованием Hibernate)
 
-12)Hibernate Validator (для валидации данных с использованием Hibernate)
+12)Java JWT (для работы с JSON Web Tokens)
 
-13)Java JWT (для работы с JSON Web Tokens)
+13)JUnit(для тестирования)
 
+14)Mockito(для тестирования)
 Для успешного запуска проекта необходимо:
 
     1)Создать БД по имени SocialNet по пути jdbc:postgresql://localhost:5432/SocialNet,логин и пароль от БД в данном случае = postgres.
@@ -112,6 +113,29 @@ Authorization со значением Bearer + (токен,который  вы 
 Ответом в случае успешного запроса являестся JSON-массив друзей текущего пользователя.
 
 Все остальные случаи тоже учтены.
+
+Технологический стэк:
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/e68d085e-8bc9-4811-b56b-da780ec7a5d9)
+
+Unit-Тестирование было реализовано только для контроллера.
+
+Unit-тесты:
+
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/9b48b8e3-420f-45c8-b36b-61be02e65a44)
+
+Проходят все,написанные Unit-тесты.
+
+Также был реализован часть Integration-тестирования для контроллера.
+
+Integration-тесты:
+
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/d4da2e77-2481-4f7b-88f4-7a8690860504)
+
+Проходят все Integration-тесты,однако:
+
+    1)Для регистрации надо менять каждый раз имя,ибо в БД данные сохраняются.
+    
+    2)Для логина надо 1 раз поменять имя пользователя на рандомный существующий из БД.
 
 
 
