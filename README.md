@@ -2,18 +2,31 @@
 Техническое задание:
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/a215dfdd-4379-4179-b67e-ba8fc655bcfa)
 Для реализации данного ТЗ было использовано следующее:
+
 1)Spring Boot Starter Data JPA
+
 2)Spring Boot Starter Security
+
 3)Spring Boot Starter Thymeleaf
+
 4)Spring Boot Starter Web
+
 5)PostgreSQL (для работы с базой данных PostgreSQL)
+
 6)Lombok (дополнительная библиотека для упрощения разработки)
+
 7)Spring Boot Starter Test (зависимость для тестирования)
+
 8)Spring Security Test (зависимость для тестирования Spring Security)
-10)Spring Boot Starter Validation (зависимость для валидации данных)
+
+9)Spring Boot Starter Validation (зависимость для валидации данных)
+
 10)ModelMapper (для маппинга объектов)
+
 11)JavaFaker (для генерации фейковых данных)
+
 12)Hibernate Validator (для валидации данных с использованием Hibernate)
+
 13)Java JWT (для работы с JSON Web Tokens)
 
 Для успешного запуска проекта необходимо:
