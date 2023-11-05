@@ -65,6 +65,10 @@ public class UserService {
         return null;
     }
 
+    public void updateUser(User user) {
+        userRepository.save(user);
+    }
+
     private String generateRandomDateOfBirth() {
         Random random = new Random();
         int randomYears = random.nextInt(81);

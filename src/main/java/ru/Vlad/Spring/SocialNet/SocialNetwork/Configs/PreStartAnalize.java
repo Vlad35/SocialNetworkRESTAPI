@@ -80,6 +80,9 @@ public class PreStartAnalize implements CommandLineRunner {
                     users.get(users.size() - 3).getFriends().add(users.get(users.size() - 1));
                 }
             }
+            for (User user : users) {
+                userService.updateUser(user);
+            }
         }
     }
 }

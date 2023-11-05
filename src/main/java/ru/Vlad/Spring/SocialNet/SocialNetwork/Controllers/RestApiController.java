@@ -37,8 +37,6 @@ public class RestApiController {
     private JWTUtil jwtUtil;
     @Autowired
     private AuthenticationManager authenticationManager;
-    /*@Autowired
-    private SecurityContextHolder securityContextHolder;*/
 
     @PostMapping("/registration")
     public Map<String,String> createUser(@RequestBody @Valid UserRegistrationDTO userRegistrationDTO,
@@ -73,7 +71,7 @@ public class RestApiController {
             e.printStackTrace();
         }
 
-        String token = jwtUtil.generateTokenAndSetHeader(userLoginDTO.getUsername(), response).substring(7);
+        String token = jwtUtil.generateTokenAndSetHeader(userLoginDTO.getUsername(), response);
 
         userService.setJwtToken(token);
         return token;
@@ -85,6 +83,7 @@ public class RestApiController {
     public String getFriendsList() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
+
         return myUserDetails.getUser().getFriends().toString();
     }
 

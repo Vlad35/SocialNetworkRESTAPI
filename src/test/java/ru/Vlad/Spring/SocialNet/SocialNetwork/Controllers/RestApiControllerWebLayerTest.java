@@ -290,7 +290,7 @@ class RestApiControllerWebLayerTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(privateUserLoginDTO));
 
-        String expectedToken = "Token";
+        String expectedToken = "Bearer Token";
 
         //Act
         MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();

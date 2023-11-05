@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Details.MyUserDetailsService;
-import ru.Vlad.Spring.SocialNet.SocialNetwork.Repositories.UserRepository;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
@@ -51,7 +50,7 @@ public class SecurityConfig {
                     auth.requestMatchers(antMatcher("/error")).permitAll();
                     auth.requestMatchers(antMatcher("/api/v1/registration")).permitAll();
                     auth.requestMatchers(antMatcher("/api/v1/login")).permitAll();
-                    auth.anyRequest().authenticated();
+                    auth.anyRequest().hasAnyRole("USER","ADMIN");
                 })
                 .sessionManagement(SM -> SM.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
