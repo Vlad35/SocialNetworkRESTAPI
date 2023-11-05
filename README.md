@@ -42,6 +42,21 @@
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/68df1eea-8e7a-4ae7-9f46-49a6a531bc50)
 Поиск по строке,которая содержится в никнейме пользователей.Результатом является JSON-массив всех пользователей,у которых в никнейм содержится заданная строка.Пример:
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/e126d166-fd94-4fb3-b47e-f84b705790dc)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/6e22c5a3-dcb5-45ba-a38c-41fd83e6dd35)
+Для добавления в друзья надо ввести ID пользователя,которого хотите добавить.
+Например:![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/4f85302a-131e-4a20-8db7-59b9e1d68201)
+Ответом в случае успешного добавления является сообщение со значением "OK".
+В случае,если вы друзья и вы хотите добавить опять,и когда вы добавляете ID несуществующего пользователя тоже учтены.
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/a21e25aa-43c3-4e13-9460-62dbfb3bb366)
+Для удаления из друзей надо ввести ID пользователя,которого хотите удалить.
+Например:![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/0eab5500-f99a-4ebf-b883-675226e703d3)
+Ответом в случае успешного удаления является сообщение со значением "OK".
+Все остальные случаи тоже учтены.
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/151fe743-7162-4524-bed1-e4f30c13f744)
+Для того,чтобы получить список своих друзей,надо перейти по соответсвующему энпоинту ничего не вводив.
+Например:![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/779eb47a-4f69-4e47-ab1c-b3ce308c61b4)
+Ответом в случае успешного запроса являестся JSON-массив друзей текущего пользователя.
+Все остальные случаи тоже учтены.
 
 
 
