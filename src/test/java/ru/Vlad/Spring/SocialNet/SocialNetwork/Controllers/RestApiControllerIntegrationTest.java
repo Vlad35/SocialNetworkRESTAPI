@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RestApiControllerIntegrationTest {
     private final Long ADD_OR_REMOVE_USER_TEST_ID = 17L;
     private final String SEARCH_USER_TEST_NAME = "A";
-    private final String CREATE_USERNAME_TO_TEST = "RTUYTIUYOGKHJVH";
+    private final String CREATE_USERNAME_TO_TEST = "uyiuoitr";
     private final String LOGIN_USERNAME_TO_TEST = "Lasandra Schamberger";
     private String authorizationToken;
 

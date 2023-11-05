@@ -10,6 +10,5 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User,Long> {
 
     User findUserByUsername(String username);
-    boolean existsByIdAndFriendsId(Long userId1, Long userId2);
 
 }

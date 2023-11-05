@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,7 +15,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.DTO.UserLoginDTO;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.DTO.UserRegistrationDTO;
+import ru.Vlad.Spring.SocialNet.SocialNetwork.Details.MyUserDetailsService;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Models.User;
+import ru.Vlad.Spring.SocialNet.SocialNetwork.Repositories.UserRepository;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Security.JWTUtil;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Security.MyUserDetails;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Services.UserService;
@@ -34,6 +37,8 @@ public class RestApiController {
     private JWTUtil jwtUtil;
     @Autowired
     private AuthenticationManager authenticationManager;
+    /*@Autowired
+    private SecurityContextHolder securityContextHolder;*/
 
     @PostMapping("/registration")
     public Map<String,String> createUser(@RequestBody @Valid UserRegistrationDTO userRegistrationDTO,
@@ -47,16 +52,20 @@ public class RestApiController {
 
         String token = jwtUtil.generateToken(user.getUsername());
         userService.setJwtToken(token);
+
         return Map.of("jwt-token",token);
     }
 
     @Transactional
     @PostMapping("/login")
-    public String performLogin(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response) {
-        User user = userService.getUserByName(userLoginDTO.getUsername());
+    public String performLogin(@RequestBody @Valid UserLoginDTO userLoginDTO,BindingResult bindingResult, HttpServletResponse response) {
         UsernamePasswordAuthenticationToken authInputToken =
                 new UsernamePasswordAuthenticationToken(userLoginDTO.getUsername(),
                         userLoginDTO.getPassword());
+
+        if(bindingResult.hasErrors()) {
+            return "You have some errors with validating";
+        }
 
         try {
             authenticationManager.authenticate(authInputToken);
@@ -67,14 +76,15 @@ public class RestApiController {
         String token = jwtUtil.generateTokenAndSetHeader(userLoginDTO.getUsername(), response).substring(7);
 
         userService.setJwtToken(token);
-        return user.toString() + "\n token is: " +  token;
+        return token;
     }
 
 
 
     @GetMapping("/user/friends")
     public String getFriendsList() {
-        MyUserDetails myUserDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
         return myUserDetails.getUser().getFriends().toString();
     }
 
@@ -127,6 +137,12 @@ public class RestApiController {
     }
 
     public User convertToUserToRegistrate(UserRegistrationDTO userRegistrationDTO) {
-        return new ModelMapper().map(userRegistrationDTO,User.class);
+        return new ModelMapper().map(userRegistrationDTO, User.class);
     }
+
+    /*@Bean
+    public MyUserDetailsService myUserDetailsService() {
+        return new MyUserDetailsService();
+    }*/
 }
+

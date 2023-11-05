@@ -1,6 +1,6 @@
 package ru.Vlad.Spring.SocialNet.SocialNetwork.Configs;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,10 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.Vlad.Spring.SocialNet.SocialNetwork.Details.MyUserDetailsService;
+import ru.Vlad.Spring.SocialNet.SocialNetwork.Repositories.UserRepository;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
-@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -27,6 +27,12 @@ public class SecurityConfig {
     private final MyUserDetailsService myUserDetailsService;
 
     private final JWTFilter jwtFilter;
+
+    @Autowired
+    public SecurityConfig(MyUserDetailsService myUserDetailsService, JWTFilter jwtFilter) {
+        this.myUserDetailsService = myUserDetailsService;
+        this.jwtFilter = jwtFilter;
+    }
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {

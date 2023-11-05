@@ -14,9 +14,11 @@ public class UserRegistrationDTO {
 
     @NotNull
     @NotEmpty(message = "Password cannot be empty")
+    @Size(min = 2,max = 30,message = "Password should be between 2 and 30 characters at length")
     private String password;
 
     @NotNull
+    @NotEmpty(message = "Date of birth cannot be empty")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private String dateOfBirth;
 
