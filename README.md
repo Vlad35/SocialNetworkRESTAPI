@@ -1,35 +1,38 @@
 # SocialNetworkRESTAPI
-Техническое задание:
+## Техническое задание:
+
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/a215dfdd-4379-4179-b67e-ba8fc655bcfa)
+
 Для реализации данного ТЗ было использовано следующее:
+    
+    1)Spring Boot Starter Data JPA
+    
+    2)Spring Boot Starter Security
+    
+    3)Spring Boot Starter Web
+    
+    4)PostgreSQL (для работы с базой данных PostgreSQL)
+    
+    5)Lombok (дополнительная библиотека для упрощения разработки)
+    
+    6)Spring Boot Starter Test (зависимость для тестирования)
+    
+    7)Spring Security Test (зависимость для тестирования Spring Security)
+    
+    8)Spring Boot Starter Validation (зависимость для валидации данных)
+    
+    9)ModelMapper (для маппинга объектов)
+    
+    10)JavaFaker (для генерации фейковых данных)
+    
+    11)Hibernate Validator (для валидации данных с использованием Hibernate)
+    
+    12)Java JWT (для работы с JSON Web Tokens)
+    
+    13)JUnit(для тестирования)
+    
+    14)Mockito(для тестирования)
 
-1)Spring Boot Starter Data JPA
-
-2)Spring Boot Starter Security
-
-3)Spring Boot Starter Web
-
-4)PostgreSQL (для работы с базой данных PostgreSQL)
-
-5)Lombok (дополнительная библиотека для упрощения разработки)
-
-6)Spring Boot Starter Test (зависимость для тестирования)
-
-7)Spring Security Test (зависимость для тестирования Spring Security)
-
-8)Spring Boot Starter Validation (зависимость для валидации данных)
-
-9)ModelMapper (для маппинга объектов)
-
-10)JavaFaker (для генерации фейковых данных)
-
-11)Hibernate Validator (для валидации данных с использованием Hibernate)
-
-12)Java JWT (для работы с JSON Web Tokens)
-
-13)JUnit(для тестирования)
-
-14)Mockito(для тестирования)
 Для успешного запуска проекта необходимо:
 
     1)Создать БД по имени SocialNet по пути jdbc:postgresql://localhost:5432/SocialNet,логин и пароль от БД в данном случае = postgres.
