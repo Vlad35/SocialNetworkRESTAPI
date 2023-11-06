@@ -1,7 +1,8 @@
 # SocialNetworkRESTAPI
 ## Техническое задание:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/a215dfdd-4379-4179-b67e-ba8fc655bcfa)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/53e5bad6-bd9e-4d4d-93c7-b020ac98a3a6)
+
 
 ### Для реализации данного ТЗ было использовано следующее:
     
@@ -43,11 +44,13 @@
     
 ### Вывод при запуске через терминал:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/cbbde492-c38d-4f82-a3dc-2bc88e63f3d7)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/5ca9c24f-9538-474c-975d-06bf803cdcec)
+
 
 ### Параметры проекта в application.properties:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/a9e6bb41-9cb4-4de5-b686-3abcc3d12301)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/4b56e0b3-84a1-4fbd-a253-df488adceb59)
+
 
 ### Далее будут рассмотрены разные части ТЗ:
 
@@ -57,7 +60,8 @@
 
 Например:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/36d26e90-a350-4b63-aad5-15c9896c9853)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/5f7caa25-22b6-4121-82b1-573950ce8718)
+
 
 Ответом в случае успешной регистрации является JWT-токен для пользователя.
 
@@ -69,7 +73,8 @@
 
 Например:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/be9db66a-5ca8-453c-befb-a59d14a3c589)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/696bf176-024d-455e-af73-35de74b97b30)
+
 
 Ответом в случае успешного логина является JWT-токен для пользователя.
 
@@ -87,13 +92,15 @@ Authorization со значением Bearer + (токен,который  вы 
 
 Пример:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/68df1eea-8e7a-4ae7-9f46-49a6a531bc50)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/8b2a4904-c81e-40cd-81bf-1b13d4b7cc3d)
+
 
 Поиск по строке,которая содержится в никнейме пользователей.Результатом является JSON-массив всех пользователей,у которых в никнейм содержится заданная строка.
 
 Пример:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/e126d166-fd94-4fb3-b47e-f84b705790dc)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/05a5dc69-62dc-4a6e-98db-27f1dac39009)
+
 
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/6e22c5a3-dcb5-45ba-a38c-41fd83e6dd35)
 
@@ -101,7 +108,8 @@ Authorization со значением Bearer + (токен,который  вы 
 
 Например:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/4f85302a-131e-4a20-8db7-59b9e1d68201)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/b957ce1f-c959-43f3-a6df-491a7aadb249)
+
 
 Ответом в случае успешного добавления является сообщение со значением "OK".
 
@@ -113,7 +121,8 @@ Authorization со значением Bearer + (токен,который  вы 
 
 Например:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/0eab5500-f99a-4ebf-b883-675226e703d3)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/47878d0d-7e30-43a6-8deb-e94288a989ed)
+
 
 Ответом в случае успешного удаления является сообщение со значением "OK".
 
@@ -125,7 +134,8 @@ Authorization со значением Bearer + (токен,который  вы 
 
 Например:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/779eb47a-4f69-4e47-ab1c-b3ce308c61b4)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/2c7b9cad-935b-405c-96bc-0ae4d304d007)
+
 
 Ответом в случае успешного запроса являестся JSON-массив друзей текущего пользователя.
 
@@ -133,13 +143,15 @@ Authorization со значением Bearer + (токен,который  вы 
 
 ### Технологический стэк:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/e68d085e-8bc9-4811-b56b-da780ec7a5d9)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/e5b1b31c-2c2e-45e5-956f-0aff265219fd)
+
 
 ### Unit-Тестирование было реализовано только для контроллера.
 
 ### Unit-тесты:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/9b48b8e3-420f-45c8-b36b-61be02e65a44)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/bff0a7f9-cd7b-4491-a74e-74deb71f4afa)
+
 
 Проходят все,написанные Unit-тесты.
 
@@ -147,7 +159,8 @@ Authorization со значением Bearer + (токен,который  вы 
 
 ### Integration-тесты:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/d4da2e77-2481-4f7b-88f4-7a8690860504)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/1543f845-b129-4a5e-abf7-21a8bc3b945f)
+
 
 Проходят все Integration-тесты,однако:
 
