@@ -54,7 +54,8 @@
 
 ### Далее будут рассмотрены разные части ТЗ:
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/86da1d6d-705c-401d-b7ab-95f81976f2da)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/9736629a-802e-4ce4-a047-870d5b53431d)
+
 
 ### Для регистрации надо ввести следующие данные:Никнейм,Пароль,Дата рождения
 
@@ -67,7 +68,8 @@
 
 В случае если происходят ошибки в данных или имя пользователя занято уже,были учтены тоже.
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/932fb4b5-90f7-4fe5-85f5-9b18912bc9bc)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/213506a9-e0fa-46ce-aab4-1d03e56e246c)
+
 
 ### Для авторизации надо ввести следующие данные:Никнейм,Пароль.
 
@@ -80,7 +82,7 @@
 
 В случае если происходят ошибки в данных были учтены тоже.
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/5341fd3f-4fe3-4c6c-93f1-d0cae494bd2c)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/7baab4a5-6660-4f37-9a24-97f2776182be)
 
 ### Поиск был реализован в двух вариантах:поиск по строке,на которую начинается никнейм пользователей, или поиск по строке,который содержится в никнейме пользователей.
 
@@ -102,7 +104,7 @@ Authorization со значением Bearer + (токен,который  вы 
 ![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/05a5dc69-62dc-4a6e-98db-27f1dac39009)
 
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/6e22c5a3-dcb5-45ba-a38c-41fd83e6dd35)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/82dbe1de-5582-42d6-86aa-b3fd407ac1b1)
 
 ### Для добавления в друзья надо ввести ID пользователя,которого хотите добавить.
 
@@ -115,7 +117,7 @@ Authorization со значением Bearer + (токен,который  вы 
 
 В случае,если вы друзья и вы хотите добавить опять,и когда вы добавляете ID несуществующего пользователя тоже учтены.
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/a21e25aa-43c3-4e13-9460-62dbfb3bb366)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/30dfba36-b44c-48e7-9326-6c187798d1a8)
 
 ### Для удаления из друзей надо ввести ID пользователя,которого хотите удалить.
 
@@ -128,7 +130,7 @@ Authorization со значением Bearer + (токен,который  вы 
 
 Все остальные случаи тоже учтены.
 
-![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/151fe743-7162-4524-bed1-e4f30c13f744)
+![image](https://github.com/Vlad35/SocialNetworkRESTAPI/assets/90512038/2b0b6d32-71e3-4332-9006-328c1e415e65)
 
 ### Для того,чтобы получить список своих друзей,надо перейти по соответсвующему энпоинту ничего не вводив.
 
